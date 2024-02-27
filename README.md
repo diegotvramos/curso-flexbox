@@ -53,4 +53,41 @@ la propiedad **Flex direction**
 
 ![flex-direction](/assets/flex-direction.JPG)
 
+![flex-wrap](/assets/flex-wrap.JPG)
+
+```css
+    /*El tamaño de la caja se comienza a considerar a partir del contenido si nosotros trabajamos Paddings, Border, Margin
+    eso va aumentar el tamaño de la caja, por eso lo debemos RESETEAR el tamaño de la caja a box-sizing
+*/
+*,
+*::after,
+*::before{
+    box-sizing: border-box; /*ya no considera desde el contenido sinó desde el border*/
+}
+
+
+
+
+.container{
+    background-color: #333;
+    height: 30vh;
+    display: flex;
+    display: inline-flex; /*hace que todos trabajen en linea*/
+    display: flex; /*Se usa más el valor de FLEX*/
+    flex-direction: row; /*por default*/
+    flex-direction: column;
+    /*no envuelvas. por default tambien depende de flex-direction*/
+    flex-wrap: nowrap; /*va a tratar de alinear todo sus hijos en una sola linea (envoltorio)*/
+    flex-wrap: wrap; /*si no caben genera otras filas abajo Lo usa Bootstrap*/
+    flex-wrap: wrap-reverse;
+    flex-flow: column wrap ;/*Shorthand de flex-direction y flex-wrap*/
+}
+
+.item{
+    border: medium solid red;
+    width: 20%;
+    height: 20%; /*ya empieza a regir este valor por que la direcion es Column*/
+    background-color: cyan;
+}
+```
 
