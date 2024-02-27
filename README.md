@@ -64,10 +64,6 @@ la propiedad **Flex direction**
 *::before{
     box-sizing: border-box; /*ya no considera desde el contenido sinó desde el border*/
 }
-
-
-
-
 .container{
     background-color: #333;
     height: 30vh;
@@ -81,6 +77,8 @@ la propiedad **Flex direction**
     flex-wrap: wrap; /*si no caben genera otras filas abajo Lo usa Bootstrap*/
     flex-wrap: wrap-reverse;
     flex-flow: column wrap ;/*Shorthand de flex-direction y flex-wrap*/
+
+    
 }
 
 .item{
@@ -90,4 +88,129 @@ la propiedad **Flex direction**
     background-color: cyan;
 }
 ```
+
+## (4/13) Alineación del Main Axis ( justify-content )
+
+Define la alineación de los elementos hijos, respecto del Eje pricipal(está definido por la propiedad flex-direction).
+
+La propiedad Justify-content tiene 6 valores:
+
+![Justify-content](/assets/justify-content.JPG)
+
+Toda las alineaciones tienen efecto si sobra espacio.
+
+
+
+## (5/13) Alineación del Cross Axis ( align-items y align-content )
+
+**align-items**
+
+Funciona por cada linea que tengamos. Define la alineación de los hijos en el eje transversal (cross axis) dentro de cada linea. 
+
+![align-items](/assets/align-items.JPG)
+
+Align-item trabaja de manera independiente por cada linea o columna que nosotros tengamos, pero si queremos alinear los elementos hijos como un todo tenemos a otra propiedad: align-content
+
+**align-content**
+
+Define la alineación de los hijos en el eje transversal (cross axis), no funciona cuando los hijos están en UNA sóla linea(CUANDO FLEX:NOWRAP NO FUNCIONA)
+
+
+los elementos que tiene alto y ancho definido tienen mayor peso
+
+trabaja en conjunto como si toda las lineas ya sean filas o columnas fuera uno solo
+
+![align-content](/assets/align-content.JPG)
+
+Cuando ya estamos maquetando sitios web nos podemos encontrar con un centrado perfecto una maquetacion fluida un stiki footer una cabecera stiky
+
+
+```css
+    .container{
+    background-color: #333;
+    height: 30vh;
+
+
+
+
+    display: flex; /*define que una caja será  flexbox de bloque  o flexbox de linea*/
+    display: inline-flex; /*hace que todos trabajen en linea*/
+    display: flex; /*Se usa más el valor de FLEX*/
+    flex-direction: row; /*por default*/
+    flex-direction: row-reverse;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    flex-direction: row; /*Define el eje principal(main-axis) row - x & column - y*/
+    flex-direction: column;
+
+    /*no envuelvas. por default tambien depende de flex-direction*/
+    flex-wrap: nowrap; /* por default va a tratar de alinear todo sus hijos en una sola linea (envoltorio)*/
+    flex-wrap: wrap; /*si no caben genera otras filas abajo Lo usa Bootstrap*/
+    /*define si la caja flexbox envuelve o NO a sus hijos*/
+    flex-wrap: wrap-reverse;
+
+    flex-flow: row wrap ;/*Shorthand de flex-direction y flex-wrap*/
+    flex-flow: row nowrap ;
+    flex-flow: row wrap ;
+    /* flex-flow: column wrap ; */
+
+    justify-content: flex-start;
+    justify-content: flex-end;
+    justify-content: center;
+    justify-content: space-between;
+    justify-content: space-around;/*mmm me parece que no se usa mucho porque no tiene simetria*/
+    justify-content: space-evenly;/*los espacios ahora si son proporcionales*/
+    justify-content: flex-start;
+
+    align-items: stretch; /*por defecto*/
+    align-items: start;
+    align-items: center;
+    align-items: flex-end;
+    align-items: baseline; /*los elementos se alinean ala linea del texto*/
+    align-items: start;
+    align-items: baseline;
+    align-items: center;
+
+    align-content: stretch; /*valor por defecto*/
+    align-content: flex-start;
+    align-content: center;
+    align-content: flex-end;
+    align-content: space-between; /*no considera las orillas*/
+    align-content: space-around;/*considera las orillas, pero se desborda*/
+    align-content: space-evenly; /**/
+}
+
+.item{
+    border: medium solid red;
+    /* width: 20%; */
+    height: 20%; /*ya empieza a regir este valor por que la direcion es Column*/
+    background-color: cyan;
+}
+
+/* .item:nth-child(even){
+    font-size: 2.5rem;
+} */
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
