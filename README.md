@@ -27,12 +27,30 @@ Muchas de las plantillas, de wordpress de drupal están maquetadas con esos fram
 
 ## (2/13) Conceptos Básicos 
 
-flexbox es un sistema unidimencional vamos a tener filas o vamos a tener columnas pero no podemos tener ambas
+flexbox es un sistema unidimencional(o tenemos filas o tenemos columnas) vamos a tener filas o vamos a tener columnas pero no podemos tener ambas
 
 ![conceptos Básicos](/assets/flex-conceptos.png)
 
 propiedad **Display** el comportamiento por defecto de los hijos de una caja fexbox y se van a aliniear y la direccion por defecto es horizontal (Fila)
 
 ```css
+    .container{
+    background-color: #333;
+    display: flex;
+    display: inline-flex; /*hace que todos trabajen en linea*/
+    display: flex; /*Se usa más el valor de FLEX*/
+}
+
+.item{
+    background-color: cyan;
+}
 
 ```
+
+## (3/13) El flujo de Flexbox ( flex-direction + flex-wrap )
+
+la propiedad **Flex direction**
+
+![flex-direction](/assets/flex-direction.JPG)
+
+
