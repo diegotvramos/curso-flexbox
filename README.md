@@ -129,10 +129,7 @@ Cuando ya estamos maquetando sitios web nos podemos encontrar con un centrado pe
     .container{
     background-color: #333;
     height: 30vh;
-
-
-
-
+    
     display: flex; /*define que una caja será  flexbox de bloque  o flexbox de linea*/
     display: inline-flex; /*hace que todos trabajen en linea*/
     display: flex; /*Se usa más el valor de FLEX*/
@@ -191,6 +188,78 @@ Cuando ya estamos maquetando sitios web nos podemos encontrar con un centrado pe
     font-size: 2.5rem;
 } */
 ```
+
+## (6/13) Factor de Crecimiento ( flex-grow ) 
+
+![flex Item Grow](/assets/flex-Item-grow.JPG)
+
+![flex Shrink-basis](/assets/Flex-shrink%20basis.JPG)
+
+
+```css
+    .item{
+    border: medium solid red;
+    /* width: 20%; */
+    /*height: 20%; /*ya empieza a regir este valor por que la direcion es Column*/
+    /* width: 100px; */
+    background-color: cyan;
+
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+```
+
+**flex-grow:0;**
+
+Cuando la caja fex-box tenga **espacio sobrante** los hijos va a poder aprovechar ese espacio sobrante, por que flex grow es el factor de crecimiento, valor por defecto es 0, NO se aceptan valores negativos
+
+eje contenedor 1000px
+    3 items de 100px
+    El espacio sobrante es 700, lo dividimos a 3 y para cada uno corresponde a 233.33 mas 100px sumados cada un le corresponderia  333.33px. 
+
+    ahora si uno de los hijos tiene el factor de crecimiento de 2 dos entonces 700 lo dividimos entre 4 = 175 al item 1 y 3  le corresponden (100+175) y al item 2 (100+175+175)=450px
+
+**flex-shrink:1;**
+
+Cuando la caja flexbox NO tenga espacio sobrante, es la habilidad o el factor de encogerse, valor por defecto es 1, NO se aceptan valores negativos.
+
+
+## (7/13) Factor de Reducción ( flex-shrink )
+
+Cuando una caja no tiene un tamaño especifico el valor que toma es el valor automático osea, ocupan el espacio que requieren segun la cantidad de letras, si le metemos mas texto a un item este crece. 
+
+si lo encojemos los items se encojen, es a la inversa de flex-grow
+
+``flex-shrink: 1;`` cuando está con esté valor  los items se encojen
+``flex-shrink: 0;`` cuando está con esté valor  los items ya no se encojen, mentienen su tamaño fijo.
+
+El contenedor padre mide (79.11*3)=237.33 siguidamente al contenedor padre lo reducimos a 200px sobran 37.33px.
+
+si ese valor de (37.33/3)= 12.443 es lo que debemos restar a cada item (79.11-12.443 )=66.667
+
+ahora el Item 2 tiene un factor de reduccion del doble entonces => al espacio reducido lo dividimos entre 4 (37.33/4)= 9.332
+
+|-9.332|-18.664|-9.332|
+
+|79.11-9.332|79.11-18.664|79.11-9.332|
+
+|=69.778|=60.446|=69.778|   
+
+Si el conetenedor está reduciendo mas su tamaño y un conetenedor hijo tiene un factor más pues significa si el contenedor padre en su totalidad eje 40 px y tenemos 3 elementos y uno de esos elementos tiene el doble que los otros dos significa que la perdida se divide entre cuatro toca a 10 los que tienen factor de 1 pierden 10px y los que tienen factor de 2 pierden 20px
+
+## (8/13) Tamaño de los hijos flexbox ( flex-basis ) 
+
+Es el tamaño del elemento hijo dentro de la linea de la caja flexbox
+Si la caja flexbox tiene direccion de fila, flex-basis representa el width
+Si la caja flexbox tiene dirección de columna, flex-basis representa el height
+valor por defecto auto.
+
+``flex-basis: auto;`` los elementos o cajas ocupan el texto que tienen es el valor por AUTO
+
+``flex-basis: 100px;``Como las cajas flexbox tiene direccion de fila pues flex-basis representa el ancho.  y si abajo poner un ``width:200px`` No le le hace efecto por que para FlexBox flex-basis tiene mayor especificidad
+
+es un Shorthand de las propiedades flex-grow flex-shrink y flex-basis en ese orden
 
 
 

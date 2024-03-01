@@ -14,9 +14,7 @@
 .container{
     background-color: #333;
     height: 30vh;
-
-
-
+    width: 100%;
 
     display: flex; /*define que una caja será  flexbox de bloque  o flexbox de linea*/
     display: inline-flex; /*hace que todos trabajen en linea*/
@@ -27,16 +25,17 @@
     flex-direction: column-reverse;
     flex-direction: row; /*Define el eje principal(main-axis) row - x & column - y*/
     flex-direction: column;
-
+    flex-direction: row;
     /*no envuelvas. por default tambien depende de flex-direction*/
     flex-wrap: nowrap; /* por default va a tratar de alinear todo sus hijos en una sola linea (envoltorio)*/
     flex-wrap: wrap; /*si no caben genera otras filas abajo Lo usa Bootstrap*/
     /*define si la caja flexbox envuelve o NO a sus hijos*/
     flex-wrap: wrap-reverse;
+    flex-wrap: nowrap;
 
     flex-flow: row wrap ;/*Shorthand de flex-direction y flex-wrap*/
     flex-flow: row nowrap ;
-    flex-flow: row wrap ;
+    /* flex-flow: row wrap ; */
     /* flex-flow: column wrap ; */
 
     justify-content: flex-start;
@@ -55,6 +54,7 @@
     align-items: start;
     align-items: baseline;
     align-items: center;
+    align-items: stretch;
 
     align-content: stretch; /*valor por defecto*/
     align-content: flex-start;
@@ -63,16 +63,40 @@
     align-content: space-between; /*no considera las orillas*/
     align-content: space-around;/*considera las orillas, pero se desborda*/
     align-content: space-evenly; /**/
+    align-content: flex-start;
 }
 
 .item{
     border: medium solid red;
     /* width: 20%; */
-    height: 20%; /*ya empieza a regir este valor por que la direcion es Column*/
+    /*height: 20%; /*ya empieza a regir este valor por que la direcion es Column*/
+    /* width: 100px; */
     background-color: cyan;
+
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    /* flex-basis: 100PX; */
+
+    flex: 0 1 auto;
+    flex: 1 1 auto;
+    flex: 0 1 150px;
+}
+
+.item:nth-child(2){
+    /*flex-grow: 3; /*el Item 2 aprovecha dos veses más que los demas.*/
+    /* flex-grow: 0; */
+    /*flex-shrink: 2;  /*reduce el doble que los demas.*/
+}
+
+.item:nth-child(3){
+    /*flex-grow: 2; /*el elemento 3 se queda con 2 revanadas del espacio sobrante*/
+    /* flex-grow: 0; */
 }
 
 /* .item:nth-child(even){
     font-size: 2.5rem;
 } */
+
+
 
