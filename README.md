@@ -227,6 +227,8 @@ Cuando la caja flexbox NO tenga espacio sobrante, es la habilidad o el factor de
 
 ## (7/13) Factor de Reducción ( flex-shrink )
 
+![flex-shrink](/assets/flex-shrink.JPG)
+
 Cuando una caja no tiene un tamaño especifico el valor que toma es el valor automático osea, ocupan el espacio que requieren segun la cantidad de letras, si le metemos mas texto a un item este crece. 
 
 si lo encojemos los items se encojen, es a la inversa de flex-grow
@@ -250,6 +252,9 @@ Si el conetenedor está reduciendo mas su tamaño y un conetenedor hijo tiene un
 
 ## (8/13) Tamaño de los hijos flexbox ( flex-basis ) 
 
+
+![flex-basis](/assets/flex-basis.JPG)
+
 Es el tamaño del elemento hijo dentro de la linea de la caja flexbox
 Si la caja flexbox tiene direccion de fila, flex-basis representa el width
 Si la caja flexbox tiene dirección de columna, flex-basis representa el height
@@ -259,10 +264,42 @@ valor por defecto auto.
 
 ``flex-basis: 100px;``Como las cajas flexbox tiene direccion de fila pues flex-basis representa el ancho.  y si abajo poner un ``width:200px`` No le le hace efecto por que para FlexBox flex-basis tiene mayor especificidad
 
-es un Shorthand de las propiedades flex-grow flex-shrink y flex-basis en ese orden
+es un Shorthand de las propiedades flex-grow flex-shrink y flex-basis en ese orden.
 
 
+## (9/13) Orden y Alineación de hijos flexbox ( order y align-self ) 
 
+**Order: ;**
+
+> order: -2;
+
+> order: 0;
+
+> order: 1;
+
+
+Nosotros podemos invertir el orden de los elementos.
+
+Representa el orden que tendran los elementos hijos en la caja flexbox.
+
+Valor por defecto 0.
+
+Se aceptan valores positivos y negativos.
+
+Un valor menor siempre irá antes que un valor mayor.
+
+el orden de la direccion de la caja  si afecta al orenamiento  
+
+
+**align-self**
+
+![align-self](/assets/align-self.JPG)
+
+A veces vamos a tener la necesidad  de cambiar el orden en el eje transversal (cross axsis).
+
+Sobreescribe el valor que tenga la propiedad align-items sólo para el elemento hijo especificado.
+
+SIGUIENTE: vamos a hablar como funcionan las Grids de estos frameworks populares como bootstrap  fundation materialize, bulma semantic iuay que la mayoria han dejado de utilizar los flots y utilizan una Grid tipo flexbox. con css purito y ejemplos de algunos patrones de maquetacion que podemos resolver con flexbox Css, le vamos a sacar provecho a el framework bootstrap. por que ya tenemos conocimientos de fex-box.
 
 
 
