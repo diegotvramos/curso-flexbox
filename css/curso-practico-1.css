@@ -1,0 +1,61 @@
+
+
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+.container{
+    margin: auto;
+    max-width: 1200px;
+}
+
+.flex-container{
+    display: flex;
+    flex-flow: row wrap; /*Fila Si Envuelve*/
+}
+
+.flex-item{
+    border: thin solid #CCC;
+    flex: 0 0 100%;
+}
+
+
+/*Estas media querys lo estamos copiando de Bootstrap*/
+
+/*Dispositivos pequeños (teléfonos horizontales, 576 px y superiores)*/
+@media (min-width: 576px) { 
+    .flex-item{
+        flex: 0 0 50%;
+    }
+ }
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) { 
+    .flex-item{
+        flex: 0 0 33.33333333333333%; /*es con (PUNTO)*/
+    }
+ }
+
+/*Dispositivos grandes (computadoras de escritorio, 992 px y superiores)*/
+@media (min-width: 992px) { 
+    .flex-item{
+        flex: 0 0 25%;
+    }
+ }
+
+/*Dispositivos extragrandes (escritorios grandes, 1200 px y más)*/
+@media (min-width: 1200px) { 
+    .flex-item{
+        flex: 0 0 16.66666666666667%;/*es con (PUNTO)*/
+    }
+ }
+
+/*Dispositivos XX-Large (escritorios más grandes, 1400 px y más)*/
+@media (min-width: 1400px) { 
+    .flex-item{
+        flex: 0 0 12.5%;
+    }
+ }

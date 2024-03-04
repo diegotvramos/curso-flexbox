@@ -301,9 +301,112 @@ Sobreescribe el valor que tenga la propiedad align-items sólo para el elemento 
 
 SIGUIENTE: vamos a hablar como funcionan las Grids de estos frameworks populares como bootstrap  fundation materialize, bulma semantic iuay que la mayoria han dejado de utilizar los flots y utilizan una Grid tipo flexbox. con css purito y ejemplos de algunos patrones de maquetacion que podemos resolver con flexbox Css, le vamos a sacar provecho a el framework bootstrap. por que ya tenemos conocimientos de fex-box.
 
+## (10/13) Maquetación y Responsive Design con Flexbox.
 
 
+si copiamos el CDN del framework de bootstrap quitamos el punto min (.min) y lo pegamos al navegador, así:
 
+`https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.css`
+
+podemos ver que bootstrap usa flexbox.
+
+Si, copiamos el CDN del framework materializecss podemos ver que usa floats.
+
+`https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css`
+
+Cuando una persona que no conoce nada de html y css y empieza a utilizar estas herramientas y solo activando y desactivando clases puede acomodar sus elementos
+
+**Las columnas en Bootstrap**
+
+![columnas](/assets/col-bootstrap.JPG)
+
+El framework de bootstrap está basado en 12 columnas.
+
+![col-11](/assets/col-11.JPG)
+
+El 0 0 significa: ni creces ni te encojes
+
+si 12 columnas representa el 100%
+entonces cuanto representa:
+11 columnas representa (11*100)/12= 91.66667%
+
+```css
+    $grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+```
+
+si el tamaño de el dispositivo es menor a 576px usa: ``col-12`` es más no es necesario poner segun yo, 
+
+Bootstrap y la mayoria de los frameworks ya son mobile fires,  es decir los estilos que definimos sin media querys son pensados para el mobil y con las media querys vamos creciendo hacia los demas tamaños
+
+```css
+    *,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+.container{
+    margin: auto;
+    max-width: 1200px;
+}
+
+.flex-container{
+    display: flex;
+    flex-flow: row wrap; /*Fila Si Envuelve*/
+}
+
+.flex-item{
+    border: thin solid #CCC;
+    flex: 0 0 100%;
+}
+
+
+/*Estas media querys lo estamos copiando de Bootstrap*/
+
+/*Dispositivos pequeños (teléfonos horizontales, 576 px y superiores)*/
+@media (min-width: 576px) { 
+    .flex-item{
+        flex: 0 0 50%;
+    }
+ }
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) { 
+    .flex-item{
+        flex: 0 0 33.33333333333333%; /*es con (PUNTO)*/
+    }
+ }
+
+/*Dispositivos grandes (computadoras de escritorio, 992 px y superiores)*/
+@media (min-width: 992px) { 
+    .flex-item{
+        flex: 0 0 25%;
+    }
+ }
+
+/*Dispositivos extragrandes (escritorios grandes, 1200 px y más)*/
+@media (min-width: 1200px) { 
+    .flex-item{
+        flex: 0 0 16.66666666666667%;/*es con (PUNTO)*/
+    }
+ }
+
+/*Dispositivos XX-Large (escritorios más grandes, 1400 px y más)*/
+@media (min-width: 1400px) { 
+    .flex-item{
+        flex: 0 0 12.5%;
+    }
+ }
+```
+
+## 
 
 
 
