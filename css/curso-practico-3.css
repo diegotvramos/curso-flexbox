@@ -1,0 +1,17 @@
+/*
+    No debo aplicar el box-sizing border box por que eso ya 
+    lo trae bootstrap para recetear los margenes
+*/
+
+.hero-image{
+    /* min-height: 100vh; ya lo hace bootstrap */
+    background-image: url("/assets/afterlife.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;/*revicion*/
+    color: #fff;
+}
+
+.hero-image div{
+    /*ponemos opacidad*/
+    background-color: rgba(0, 0, 0, 0.45);/*Rgba para aplicar opacidad y así mi texto sea legible*/
+}

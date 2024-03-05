@@ -428,7 +428,7 @@ como cada uno al menos va tener 200px  si son 600px se divien a 3  si es 800px s
 El valor que ustedes le asignen a la propiedad Flex-basis va ser el minimo que va ocupar cada columna y cuando ya tengamos una anchura lo sufisientemente para soportar 2 elementos  solitos se van a ir a lineando, es escribir menos codigo verboso en nuestro html
 
 
-````css
+```css
     /*Quitamos los bordes*/
 *,
 *::after,
@@ -543,11 +543,138 @@ main{
 }
 ```
 
-## 
+## (13/13) Bootstrap y Flexbox
+
+Si vamos a la parte de Utilities en bootstrap : podemos ver que tiene clases o propiedades para: 
+
+bordes, para Display, para position, spacing, flex
+
+si tu ya tienes conocimiento basico de flexbox le puedes sacar muchisimo provecho a BOOTSTRAP.
+
+Cuando el tamaño de pantalla llege a LG (992px) vamos a decirle que los lementos trabajen en fila   
+
+`.flex-lg-row` usamos esta clase.
+
+`.justify-content-evenly`Pero ahora están muy pegados es que aplicamos esta propiedad
 
 
+ahora buscamos en en bootstrap un menú de navegación copiamos el código y lo pegamos a nuestro proyecto.
 
 
+`https://getbootstrap.com/docs/5.2/components/navbar/#color-schemes` para el esquema de colores
+
+ahora vamos a ver como poner pie de página.
+
+> el principio es el siguiente: el contenedor padre del footer es el body ¿que le hicimos al body,? le volvimos ``Display-flex`` (todo lo acomoda en fila) , le dimos direcion `flex-direction: column` en columna tambien le dimos una ``min-height: 100vh;`` minima altura del 100% y a la etiqueta main le aplicamos un `flex-grow:1`
+
+Pues que creen esas 4 propiedades bootstrap tiene clases utilitarias
+
+en el apardado de Sizing tiene unas 4 clases utilitarias relativas al viewport.
+
+`https://getbootstrap.com/docs/5.2/utilities/sizing/#relative-to-the-viewport` aplicamos al body
+
+ahora al main vamos a ponerle un `flex-grow:1` que en bootstrap seria: `.flex-grow-1` y como lo quiero desde el mobil no me tengo que estar peleando con que si es sm ,  lg etc.
+
+pues no he tenido que meter ni una linea de codigo css digamos que para los puristas esa es la desventaja,  pues activamos muchas clases para que tuviera ese comportamiento 
+
+```html
+    <body class=" d-flex flex-column min-vh-100 ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container-fluid ">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled ">Disabled</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+      <main class="flex-grow-1">
+        <h1>Flexbox Bootstrap</h1>
+        <section class="bg-info text-white d-flex flex-column align-items-center flex-lg-row justify-content-evenly">
+            <article>Flex Item 1</article>
+            <article>Flex Item 2</article>
+            <article>Flex Item 3</article>
+            <article>Flex Item 4</article>
+            <article>Flex Item 5</article>
+        </section>
+        <section class="hero-image min-vh-100 ">
+            <div class="min-vh-100 d-flex justify-content-center align-items-center text-center">
+                <h1>Flex-box mas Bootstrap is fuckin' OWESOME COOL</h1>
+            </div>
+        </section>
+        <div class="container">
+            <!-- ¿eso de row es parte de grid en bootstrap? -->
+            <section class="row align-items-lg-center">
+                <article class="col-12 col-lg-6">
+                    <h2>TITULO </h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, nihil aspernatur impedit obcaecati alias saepe, quidem dolorem aliquid similique mollitia iusto fugiat quia soluta excepturi, dolorum suscipit vel. Quasi, tempore?</p>
+                </article>
+                <article class="col-12 col-lg-6">
+                    <img src="assets/land-cruiser.JPG" alt="land cruiser" class="img-fluid">
+                </article>
+            </section>
+
+            <section class="row align-items-lg-center">
+                <article class="col-12 col-lg-6 order-lg-1">
+                    <h2>TITULO </h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, nihil aspernatur impedit obcaecati alias saepe, quidem dolorem aliquid similique mollitia iusto fugiat quia soluta excepturi, dolorum suscipit vel. Quasi, tempore?</p>
+                </article>
+                <article class="col-12 col-lg-6">
+                    <img src="assets/image-github-mobile.JPG" alt="image github" class="img-fluid">
+                </article>
+            </section>
+        </div>
+      </main>
+
+
+      <a href="index.html">☝</a>
+      <footer class="bg-dark text-white">
+        <h2>Sticky Footer con bootstrap</h2>
+      </footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+```
+
+lo que quiero que vean es como con bootstrap podemos aprovechar todo lo que ya nos trae preestablecido mas aparte sacarle maximo provecho y maxima personalizacion con conocimientos no solo de flexbox pues ti tu sabes perfectamente css: Animaciones, transiciones maquetación modelo de caja pues a cualquiera de estos frameworks como bootstrap fundation o materializecss  le vas a sacar muchisimo provecho nada mas es utilizar lo que te ofrecen y adecuar, personalizar en base a lo que necesitas con la ayuda de tus conocimientos y de las clases que te da el framework aunque el responsive sin media querys no lo podemos hacer, aunque bootstrap no trae un componente de hero-image trae una cosa que se llama jumbotrump
+
+EL **hero-image** lo voy hacer con codigo purito en css 
+
+y todo lo que tenga que ver con flex-box lo voy aplicar con las clases utilitarias de Bootstrap
+
+Para que una imagen sea responsiva hay que agregarle la clase `img-fluid`
+
+> _En las imagenes la anchura es lo que manda mas que la altura_.
+
+en mobil ya lo tenemos resuelto, pero en LG queremos haga sic zac osea que sea intercalado
+
+Entonces vamos a utilizar las clases utilitarias del orden. pero solo lo quiero aplicar cuando sea LG. lo logramos con ` order-lg-1` **0 es primero y 1 es segundo en ese orden**
+
+Ahora nomas faltaria centrar,  la clase row ``flex-fireccion: row;`` esto es por defecto
+
+Si quiero alinear en Y seria el eje transversal el cross axis entonces para alinear el cross axis  tentria que utilizar ``align-items-center`` pero el align-items pero nomas lo necesito en desktop por que en movil si quiero que vayan uno tras de otro entonces usamos solo en lg(large grande) `align-items-center`
+
+Entonces todo los ejemplos que hicimos artesanalmente los logramos con las clases utilitarias de bootstrap yo sé que el código html quedó muy verboso, digamos que son las desventajas de utilizar este tipo de herramientas la ventaja es la velocidad con la que hice estó.
+
+Si yo no hubiera tenido el conocimiento tecnico y teorico de flexbox de toda sus propiedades pues aunque bootstrap me diera estas clases yo no las hubiera manejado con la habilidad que lo hice en esté ejercicio. La intencion es que se den cuenta de los alcances que tenemos con flexbox y con este poderosisimo framework Bootstrap 
 
 
 
