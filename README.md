@@ -406,7 +406,145 @@ Bootstrap y la mayoria de los frameworks ya son mobile fires,  es decir los esti
  }
 ```
 
+## (11/13) Casos Prácticos con Flexbox I
+
+Cuando el contenido no es suficientemente grande el contenido no se puede ir a la parte de abajo, y cuando tu querias fijar un pie de página entonces ahi tu tenias que aplicar un position-absolute o position fix hoy con flexbox lo podemos trabajar muy censillo
+
+Siempre tratemos de trabajar **Mobile First** el mobil primero.
+
+Les voy a enseñar a hacer responsive Design sin la necesidad de media Querys.
+
+Cuando nosotros a la propieda Grow y Shrink le damos la capacidad de crecer y de reducirse o encojerce cuando nosotros le definimos a la 3er propiedad que seria el flex-basis el tamaño de elemento en la linea de flexbox es te es el minimo valor que va obtener si el contenedor comienza a reducirse por esté uno va reducirse proporcionalmente pero si sobra espacio  está linea hace el responsive por nosotros.
+
+```css
+.flex-responsive-item{
+    border: thin solid #f60;
+    flex: 1 1 200px;
+    flex: 1 1 150px; /*es el la base minima de tamaño  si es poquito mas de 300px se dividen a 2 columnas*/
+}
+```
+como cada uno al menos va tener 200px  si son 600px se divien a 3  si es 800px se dividen a 4 columnas
+
+El valor que ustedes le asignen a la propiedad Flex-basis va ser el minimo que va ocupar cada columna y cuando ya tengamos una anchura lo sufisientemente para soportar 2 elementos  solitos se van a ir a lineando, es escribir menos codigo verboso en nuestro html
+
+
+````css
+    /*Quitamos los bordes*/
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/*¿Quien envuelve a esos 3 elementos? el Body*/
+
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*
+El elemento main solo debe ir uno por documento, Por que ahi dentro está el 
+contenido principal.
+Hace que tengamos un pie siempre en la parte de abajo
+*/
+
+main{
+    flex-grow: 1; /*Factor de crecimiento*/
+}
+
+
+.titulares{
+    padding: 1rem;
+    background-color: #222;
+    color: #EEE;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;/*Centrar los elementos, centra la caja*/
+    text-align: center; /*Center centra el texto*/
+}
+
+
+.menu ul{
+    list-style-type: none;
+}
+.menu a{
+    color: aquamarine;
+}
+
+.hero-image{
+    min-height: 100vh;
+    background-image: url("/assets/afterlife.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;/*revicion*/
+    color: #fff;
+}
+
+.hero-image h1{
+    font-size: 5vw; /*para que cresca proporcionalmete*/
+}
+
+.hero-image div{
+    min-height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.45);/*Rgba para aplicar opacidad y así mi texto sea legible*/
+}
+
+.flex-responsive{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flex-responsive-item{
+    border: thin solid #f60;
+    flex: 1 1 200px;
+    flex: 1 1 150px; /*es el la base minima de tamaño  si es poquito mas de 300px se dividen a 2 columnas*/
+}
+
+
+@media screen and (min-width: 1024px){
+    .header{
+        display: flex;
+        flex-direction: row; /*Fila*/
+        justify-content: space-between;
+    }
+    .menu ul{
+        display: flex;
+    }
+    .menu li{
+        padding: 0.5rem;
+    }
+    .flex-container{
+        display: flex;
+        align-items: center; /*Centra en el eje Y*/
+    }
+    .flex-item{
+        flex: 0 0 50%;/* no quiero que cresca ni que se redusca, esto divide a 2 el contenido*/
+    }
+    .flex-order-1{
+        order: 1; /*Primera forma.*/
+    }
+    .flex-row-reverse{
+        flex-direction: row-reverse; /*Segunda forma.*/
+    }
+}
+```
+
 ## 
+
 
 
 
