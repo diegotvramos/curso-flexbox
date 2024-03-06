@@ -5,7 +5,7 @@
 
 .hero-image{
     /* min-height: 100vh; ya lo hace bootstrap */
-    background-image: url("/assets/afterlife.JPG");
+    background-image: url("../assets/afterlife.JPG");
     background-repeat: no-repeat;
     background-size: cover;/*revicion*/
     color: #fff;

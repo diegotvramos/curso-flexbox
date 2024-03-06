@@ -55,7 +55,7 @@ main{
 
 .hero-image{
     min-height: 100vh;
-    background-image: url("/assets/afterlife.JPG");
+    background-image: url("../assets/afterlife.JPG");
     background-repeat: no-repeat;
     background-size: cover;/*revicion*/
     color: #fff;
