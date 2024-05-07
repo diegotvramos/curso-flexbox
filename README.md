@@ -206,6 +206,8 @@ Cuando ya estamos maquetando sitios web nos podemos encontrar con un centrado pe
     /* width: 100px; */
     background-color: cyan;
 
+
+    /*valor por defecto*/
     flex-grow: 0;
     flex-shrink: 1;
     flex-basis: auto;
@@ -214,17 +216,49 @@ Cuando ya estamos maquetando sitios web nos podemos encontrar con un centrado pe
 
 **flex-grow:0;**
 
-Cuando la caja fex-box tenga **espacio sobrante** los hijos va a poder aprovechar ese espacio sobrante, por que flex grow es el factor de crecimiento, valor por defecto es 0, NO se aceptan valores negativos
+Cuando la caja fex-box tenga **espacio sobrante** los hijos va a poder aprovechar ese espacio sobrante, por que flex grow es la habilidad o el factor de crecimiento, valor por defecto es 0, NO se aceptan valores negativos
 
-eje contenedor 1000px
-    3 items de 100px
-    El espacio sobrante es 700, lo dividimos a 3 y para cada uno corresponde a 233.33 mas 100px sumados cada un le corresponderia  333.33px. 
 
-    ahora si uno de los hijos tiene el factor de crecimiento de 2 dos entonces 700 lo dividimos entre 4 = 175 al item 1 y 3  le corresponden (100+175) y al item 2 (100+175+175)=450px
+> `flex-grow: 0;`
+
+![flex-grow-0](/assets/flex-grow-0.JPG)
+
+> `flex-grow: 1;`
+
+![flex-grow-1](/assets/flex-grow-1.JPG)
+
+absorvió todo el espacio sobrante proporcionalmente
+
+> `flex-grow: 2;` no significa que crece al doble de su tamaño. sino del espacio sobrante toma proporcionalmente el doble de los otros elementos
+
+ejemplo: 
+
+al contenedor le damos una anchura fija de: ``1000px``
+
+a los items de le damos una anchura fija de: ``100px``
+
+> El espacio sobrante es 700, lo dividimos a 3 = 233.33 mas 100px del item cada un le corresponderia  333.33px. 
+
+![flex-grow-1-ejemplo](/assets/flex-grow-1-ejemplo.JPG)
+
+> Ahora si uno de los hijos tiene el factor de crecimiento de dos entonces 700 lo dividimos entre 4 = 175 al item 1 y 3  le corresponden (100+175)= 275  y al item 2 (100+175+175)=450px
+
+```css
+    .item:nth-child(2){
+        flex-grow: 2;
+    }
+```
+
+![flex-grow-2-275](/assets/flex-grow-2-275.JPG)
+
+![flex-grow-2-450](/assets/flex-grow-2-450.JPG)
+
+> `https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow`
+
 
 **flex-shrink:1;**
 
-Cuando la caja flexbox NO tenga espacio sobrante, es la habilidad o el factor de encogerse, valor por defecto es 1, NO se aceptan valores negativos.
+(es lo contrariao) Cuando la caja flexbox NO tenga espacio sobrante, es la habilidad o el factor de encogerse, valor por defecto es 1, NO se aceptan valores negativos.
 
 
 ## (7/13) Factor de Reducción ( flex-shrink )
@@ -235,8 +269,9 @@ Cuando una caja no tiene un tamaño especifico el valor que toma es el valor aut
 
 si lo encojemos los items se encojen, es a la inversa de flex-grow
 
-``flex-shrink: 1;`` cuando está con esté valor  los items se encojen
-``flex-shrink: 0;`` cuando está con esté valor  los items ya no se encojen, mentienen su tamaño fijo.
+> ``flex-shrink: 1;`` cuando está con esté valor  los items se encojen.
+
+> ``flex-shrink: 0;`` cuando está con esté valor  los items ya no se encojen, mentienen su tamaño fijo.
 
 El contenedor padre mide (79.11*3)=237.33 siguidamente al contenedor padre lo reducimos a 200px sobran 37.33px.
 
@@ -265,6 +300,25 @@ valor por defecto auto.
 ``flex-basis: auto;`` los elementos o cajas ocupan el texto que tienen es el valor por AUTO
 
 ``flex-basis: 100px;``Como las cajas flexbox tiene direccion de fila pues flex-basis representa el ancho.  y si abajo poner un ``width:200px`` No le le hace efecto por que para FlexBox flex-basis tiene mayor especificidad
+
+
+```css
+/* Dos valores: flex-grow | flex-basis */
+flex: 1 30px;
+
+/* Dos valores: flex-grow | flex-shrink */
+flex: 2 2;
+
+/* Tres valores: flex-grow | flex-shrink | flex-basis */
+flex: 2 2 10%;
+```
+en botstrap las columnas están definidas así:
+
+```css
+    .col {
+        flex: 1 0 0%;
+    }
+```
 
 es un Shorthand de las propiedades flex-grow flex-shrink y flex-basis en ese orden.
 
