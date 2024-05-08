@@ -267,23 +267,37 @@ a los items de le damos una anchura fija de: ``100px``
 
 Cuando una caja no tiene un tamaño especifico el valor que toma es el valor automático osea, ocupan el espacio que requieren segun la cantidad de letras, si le metemos mas texto a un item este crece. 
 
+![flex-shrink-1](/assets/flex-shrink-1.JPG)
+
 si lo encojemos los items se encojen, es a la inversa de flex-grow
 
-> ``flex-shrink: 1;`` cuando está con esté valor  los items se encojen.
+> ``flex-shrink: 1;`` cuando está con esté valor  los items se encojen (valor por defecto).
 
-> ``flex-shrink: 0;`` cuando está con esté valor  los items ya no se encojen, mentienen su tamaño fijo.
+![flex-shrink-default](/assets/flex-shrink-default.JPG)
 
-El contenedor padre mide (79.11*3)=237.33 siguidamente al contenedor padre lo reducimos a 200px sobran 37.33px.
+> ``flex-shrink: 0;`` cuando está con esté valor  los items ya no se encojen, mentienen su tamaño fijo. y genera un scroll horizontal al encojerse
+
+![flex-shrink-0](/assets/flex-shrink-0.JPG)
+
+
+**EJEMPLO:**
+
+(79.11*3)=237.33
+
+El contenedor padre mide 237.33px seguidamente al contenedor padre lo reducimos a 200px sobran 37.33px.
 
 si ese valor de (37.33/3)= 12.443 es lo que debemos restar a cada item (79.11-12.443 )=66.667
 
-ahora el Item 2 tiene un factor de reduccion del doble entonces => al espacio reducido lo dividimos entre 4 (37.33/4)= 9.332
 
-|-9.332|-18.664|-9.332|
+ahora el Item-2 tiene un factor de reduccion del doble entonces => al espacio reducido lo dividimos entre 4 (37.33/4)= 9.332
 
-|79.11-9.332|79.11-18.664|79.11-9.332|
+cada _item_ mide 79.11 px
 
-|=69.778|=60.446|=69.778|   
+item-1 -9.332 = 69.778
+item-2 -(9.332*2) = 60.446
+item-3 -9.332 = 69.778
+
+![flex-shink-2](/assets/flex-shrink-doble.JPG)
 
 Si el conetenedor está reduciendo mas su tamaño y un conetenedor hijo tiene un factor más pues significa si el contenedor padre en su totalidad eje 40 px y tenemos 3 elementos y uno de esos elementos tiene el doble que los otros dos significa que la perdida se divide entre cuatro toca a 10 los que tienen factor de 1 pierden 10px y los que tienen factor de 2 pierden 20px
 
@@ -293,14 +307,18 @@ Si el conetenedor está reduciendo mas su tamaño y un conetenedor hijo tiene un
 ![flex-basis](/assets/flex-basis.JPG)
 
 Es el tamaño del elemento hijo dentro de la linea de la caja flexbox
-Si la caja flexbox tiene direccion de fila, flex-basis representa el width
-Si la caja flexbox tiene dirección de columna, flex-basis representa el height
-valor por defecto auto.
+Si la caja flexbox tiene direccion de fila, flex-basis representa el _width_
+Si la caja flexbox tiene dirección de columna, flex-basis representa el _height_
+valor por defecto`` auto``.
 
-``flex-basis: auto;`` los elementos o cajas ocupan el texto que tienen es el valor por AUTO
+``flex-basis: auto;`` los elementos o cajas ocupan el texto(contenido) que tienen es el valor por AUTO
 
-``flex-basis: 100px;``Como las cajas flexbox tiene direccion de fila pues flex-basis representa el ancho.  y si abajo poner un ``width:200px`` No le le hace efecto por que para FlexBox flex-basis tiene mayor especificidad
+``flex-basis: 100px;``Como las cajas flexbox tiene direccion de fila pues flex-basis representa el ancho.  y si abajo ponemos un ``width:200px`` No le le hace efecto por que para FlexBox _flex-basis_ tiene mayor especificidad
 
+![flex-basis-100px](/assets/flex-basis-100px.JPG)
+
+
+> `https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis`
 
 ```css
 /* Dos valores: flex-grow | flex-basis */
@@ -311,7 +329,12 @@ flex: 2 2;
 
 /* Tres valores: flex-grow | flex-shrink | flex-basis */
 flex: 2 2 10%;
+
 ```
+flex (shorthand)
+
+> **`flex: 0 1 auto;`** segun shet cheatsheet
+
 en botstrap las columnas están definidas así:
 
 ```css
@@ -322,6 +345,18 @@ en botstrap las columnas están definidas así:
 
 es un Shorthand de las propiedades flex-grow flex-shrink y flex-basis en ese orden.
 
+
+> **`flex: 1 1 auto;`** 
+
+1: si quiero que crezca y ocupe todo el espacio, 1: si quiero que se reduscan, auto: y que tengan tamaño automático
+
+> **`flex: 1 0 auto;`** 
+
+el segundo valor que es 0: ya no se reduce y genera un scroll horizontal
+
+> **`flex: 1 0 150px;`** 
+
+![reduccion-150](/assets/reduccion-150.JPG)
 
 ## (9/13) Orden y Alineación de hijos flexbox ( order y align-self ) 
 
